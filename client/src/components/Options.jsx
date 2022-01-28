@@ -3,7 +3,8 @@ import React from 'react';
 const Options = ({children}) => {
     return (
         <div>
-            Options
+            Option
+            
             {children}
     
         </div>
