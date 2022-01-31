@@ -38,11 +38,10 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const Options = ({children}) => {
-    const {me, callAccepted, name,setName, leaveCall, callUser, callEnded} = useContext(SocketContext);
+    const {me, callAccepted, name, setName, callEnded, leaveCall, callUser} = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('');
     const classes = useStyles();
     return (
-
         <Container className={classes.container}>
             <Paper elevation={10} className={classes.paper}>
                 <form className={classes.root} noValidate autoComplete="off">
@@ -51,22 +50,20 @@ const Options = ({children}) => {
                             <Typography gutterBottom variant="h6">Compte Info</Typography>
                             <TextField label="Nom" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
                             <CopyToClipboard text={me} className={classes.margin}>
-                                <Button variant="contained" color="success" fullWidth startIcon={<Assignment fontSize="large"></Assignment>}>
+                                <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large"></Assignment>}>
                                     Copier son Id
                                 </Button>
-
                             </CopyToClipboard>
-
-
                         </Grid>
                         <Grid item xs={12} md={6} className={classes.padding}>
                             <Typography gutterBottom variant="h6">Passer un Appel</Typography>
                             <TextField label="ID a appeller" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} fullWidth />
+                            {console.log(idToCall)};
                             {callAccepted && !callEnded ? (
                                 <Button variant="contained" 
                                 color="secondary" 
                                 fullWidth 
-                                startIcon={<PhoneDisabled />}
+                                startIcon={<PhoneDisabled  fontSize='large'/>}
                                 onClick={leaveCall}
                                 className={classes.margin}
                                 >
@@ -77,23 +74,20 @@ const Options = ({children}) => {
                                 <Button variant="contained" 
                                 color="primary" 
                                 fullWidth 
-                                startIcon={<Phone />}
+                                startIcon={<Phone fontSize='large' />}
                                 onClick={() => callUser(idToCall)}
                                 className={classes.margin}>
- 
+                                  Appel
                                 </Button>
 
                             )}
 
-
                         </Grid>
                     </Grid>
-                   
-                        
-                   
+          
                 </form>
                 {children}
-            </Paper>
+          </Paper>
 
         </Container>
       
