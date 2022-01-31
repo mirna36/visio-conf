@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '600px',
+    width: '20rem',
     boxShadow:'2px',
     color: 'gray',
   },
@@ -33,7 +33,7 @@ const App = () => {
   return (
   <div className={classes.wrapper}>
     <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography variant='h2' align="center">
+        <Typography variant='h2' align="center" >
             Vidéo conférence
         </Typography>
     </AppBar>
