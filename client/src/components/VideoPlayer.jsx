@@ -1,8 +1,7 @@
-import React, { useContext} from 'react';
-import { Grid, Typography, Paper } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useContext } from 'react';
+import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
 
-import { SocketContext } from '../SocketContext';
+import { SocketContext } from '../Context';
 
 const useStyles = makeStyles((theme) => ({
   video: {
@@ -63,3 +62,4 @@ const VideoPlayer = () => {
 }
 
 export default VideoPlayer;
+
