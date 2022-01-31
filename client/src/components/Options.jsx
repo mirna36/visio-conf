@@ -42,6 +42,7 @@ const Options = ({children}) => {
     const [idToCall, setIdToCall] = useState('');
     const classes = useStyles();
     return (
+
         <Container className={classes.container}>
             <Paper elevation={10} className={classes.paper}>
                 <form className={classes.root} noValidate autoComplete="off">
@@ -79,7 +80,7 @@ const Options = ({children}) => {
                                 startIcon={<Phone />}
                                 onClick={() => callUser(idToCall)}
                                 className={classes.margin}>
-                                Appel
+ 
                                 </Button>
 
                             )}
@@ -93,6 +94,7 @@ const Options = ({children}) => {
                 </form>
                 {children}
             </Paper>
+
         </Container>
       
       );
