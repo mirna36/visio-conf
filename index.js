@@ -21,13 +21,13 @@ app.get("/", (req, res) =>{
 io.on("connection",(socket) =>{
     socket.emit('me', socket.id);
     socket.on('disconnect', () =>{
-        socket.broadcast.emit("callended");
+        socket.broadcast.emit("callEnded");
     });
-    socket.on('calluser', ({userTocall, signalData, from, name}) =>{
-        io.to(userTocall).emit("calluser",{ signal: signalData, from, name});
+    socket.on('callUser', ({userTocall, signalData, from, name}) =>{
+        io.to(userTocall).emit("callUser",{ signal: signalData, from, name});
     });
-    socket.on('answercall', ()=>{
-        io.to(data.to).emit("callaccepted", data.signal);
+    socket.on('answerCall', ()=>{
+        io.to(data.to).emit("callAccepted", data.signal);
 
     })
 })
