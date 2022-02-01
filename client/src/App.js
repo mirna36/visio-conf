@@ -16,14 +16,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     width: '600px',
     boxShadow:'2px gray',
-    color:'gray',
-    
+    color: 'gray',
 
     [theme.breakpoints.down('xs')]: {
       width: '90%',
     },
   },
- 
+  image: {
+    marginLeft: '15px',
+  },
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
@@ -38,7 +39,7 @@ const App = () => {
   return (
     <div className={classes.wrapper}>
       <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography variant="h2" align="center">Visio-Conférence</Typography>
+        <Typography variant="h2" align="center">Visio Conférence</Typography>
       </AppBar>
       <VideoPlayer />
       <Sidebar>

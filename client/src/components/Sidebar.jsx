@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     width: '600px',
     margin: '35px 0',
     padding: 0,
+    
     [theme.breakpoints.down('xs')]: {
       width: '80%',
     },
@@ -33,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: '10px 20px',
-    border: '2px solid black',
+    boxShadow:'2px gray',
+    color: 'gray',
   },
 }));
 
@@ -49,19 +51,19 @@ const Sidebar = ({ children }) => {
           <Grid container className={classes.gridContainer}>
             <Grid item xs={12} md={6} className={classes.padding}>
               <Typography gutterBottom variant="h6">Compte Info</Typography>
-              <TextField label="Nom" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
+              <TextField label="Nom Prenom" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
               <CopyToClipboard text={me} className={classes.margin}>
                 <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
-                  Copier ID
+                  Copier L'ID réunion
                 </Button>
               </CopyToClipboard>
             </Grid>
             <Grid item xs={12} md={6} className={classes.padding}>
-              <Typography gutterBottom variant="h6">Faire un appel</Typography>
-              <TextField label="ID de la personne" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} fullWidth />
+              <Typography gutterBottom variant="h6">Passer un appel</Typography>
+              <TextField label="ID a appeller" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} fullWidth />
               {callAccepted && !callEnded ? (
                 <Button variant="contained" color="secondary" startIcon={<PhoneDisabled fontSize="large" />} fullWidth onClick={leaveCall} className={classes.margin}>
-                  Raccrocher
+                  Racrocher
                 </Button>
               ) : (
                 <Button variant="contained" color="primary" startIcon={<Phone fontSize="large" />} fullWidth onClick={() => callUser(idToCall)} className={classes.margin}>
