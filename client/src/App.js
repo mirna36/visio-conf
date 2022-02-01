@@ -3,7 +3,7 @@ import { Typography, AppBar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import VideoPlayer from './components/VideoPlayer';
-import Options from './components/Options';
+import Sidebar from './components/Sidebar';
 import Notifications from './components/Notifications';
 
 const useStyles = makeStyles((theme) => ({
@@ -14,36 +14,38 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '20rem',
-    boxShadow:'2px',
-    color: 'gray',
+    width: '600px',
+    boxShadow:'2px gray',
+    color:'gray',
+    
+
+    [theme.breakpoints.down('xs')]: {
+      width: '90%',
+    },
   },
-  
+ 
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
   },
-
 }));
 
 const App = () => {
   const classes = useStyles();
+
   return (
-  <div className={classes.wrapper}>
-    <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography variant='h2' align="center" >
-            Vidéo conférence
-        </Typography>
-    </AppBar>
-    <VideoPlayer />
-    <Options>
+    <div className={classes.wrapper}>
+      <AppBar className={classes.appBar} position="static" color="inherit">
+        <Typography variant="h2" align="center">Visio-Conférence</Typography>
+      </AppBar>
+      <VideoPlayer />
+      <Sidebar>
         <Notifications />
-    </Options>
-  </div>
+      </Sidebar>
+    </div>
   );
 };
 
 export default App;
-
